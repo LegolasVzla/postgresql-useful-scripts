@@ -1,6 +1,6 @@
--- DROP FUNCTION temporal_schema.tbl_endangered_animals_get(INTEGER);
+-- DROP FUNCTION temporal_schema.udf_endangered_animals_get(INTEGER);
 
-CREATE OR REPLACE FUNCTION temporal_schema.tbl_endangered_animals_get(param_id_endangered_animals INTEGER)
+CREATE OR REPLACE FUNCTION temporal_schema.udf_endangered_animals_get(param_id_endangered_animals INTEGER)
  RETURNS character varying
  LANGUAGE plpgsql
 AS $function$
@@ -18,7 +18,7 @@ DECLARE
   Review:   
 
   -- To Test: you can use the next line, to test this function
-    SELECT temporal_schema.tbl_endangered_animals_get(1);
+    SELECT temporal_schema.udf_endangered_animals_get(1);
   */
 
   -- This is a validation to check if the param_id_endangered_animals exist
@@ -54,4 +54,4 @@ END;
 
 $function$;
 
-COMMENT ON FUNCTION temporal_schema.tbl_endangered_animals_get(INTEGER) IS 'This function is used to get data from temporal_schema.tbl_endangered_animals_get';
+COMMENT ON FUNCTION temporal_schema.udf_endangered_animals_get(INTEGER) IS 'This function is used to get data from temporal_schema.udf_endangered_animals_get';
