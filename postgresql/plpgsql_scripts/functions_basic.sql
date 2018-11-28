@@ -29,6 +29,10 @@ DECLARE
       temporal_schema.tbl_endangered_animals
     WHERE
       id_endangered_animals = param_id_endangered_animals
+      AND
+      is_active
+      AND
+      not is_deleted
     ) THEN
 
     -- You can use 'INTO STRICT' statement, to store data returned into a variable. Be carefull if your query return more than one values
@@ -37,7 +41,11 @@ DECLARE
     FROM 
       temporal_schema.tbl_endangered_animals
     WHERE
-      id_endangered_animals = param_id_endangered_animals;
+      id_endangered_animals = param_id_endangered_animals
+      AND
+      is_active
+      AND
+      not is_deleted;
 
     -- You can use 'RAISE NOTICE' statement to display messages and debug your code 
     RAISE NOTICE 'Data found';
