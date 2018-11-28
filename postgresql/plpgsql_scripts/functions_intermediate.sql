@@ -19,16 +19,28 @@ DECLARE
   WITH temporal_category_table AS (
       SELECT
         id_categories,
-        name
+        name,
+        is_active,
+        is_deleted
       FROM
         temporal_schema.tb_categories
+      WHERE
+        is_active
+        AND
+        not is_deleted
     ), temporal_relation_endangered_reasons AS (
         SELECT
           id_endangered_animals,
           id_categories,
-          id_reasons
+          id_reasons,
+          is_active,
+          is_deleted
         FROM
           temporal_schema.tbl_relation_endangered_reasons
+        WHERE
+          is_active
+          AND
+          not is_deleted
     )
 
     SELECT JSON_AGG(a.*) INTO STRICT json_returning
@@ -59,6 +71,14 @@ DECLARE
                       trer.id_endangered_animals = ea.id_endangered_animals
                       AND
                       trer.id_categories = tct.id_categories
+                      AND
+                      r.is_active
+                      AND
+                      not r.is_deleted                      
+                      AND
+                      trer.is_active
+                      AND
+                      not trer.is_deleted
                 )c
               )
             FROM temporal_schema.tbl_endangered_animals ea
@@ -68,6 +88,14 @@ DECLARE
                 ea.id_categories = rer.id_categories
                 AND
                 ea.id_categories = tct.id_categories
+                AND
+                ea.is_active
+                AND
+                not ea.is_deleted                      
+                AND
+                rer.is_active
+                AND
+                not rer.is_deleted                
             GROUP BY
               ea.id_endangered_animals,
               ea.name
@@ -77,6 +105,10 @@ DECLARE
         )
       FROM 
         temporal_category_table tct
+      WHERE
+        tct.is_active
+        AND
+        not tct.is_deleted        
     )a;
 
     RETURN json_returning;
