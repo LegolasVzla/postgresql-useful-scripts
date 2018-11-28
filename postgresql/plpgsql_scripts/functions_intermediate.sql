@@ -36,7 +36,7 @@ DECLARE
       SELECT
         tct.id_categories "categoryId",
         tct.name "categoryName",
-        true as "is_active",
+        true as "isActive",
         (
           SELECT ARRAY_AGG(b.*) "animalList"
           FROM (
@@ -44,14 +44,14 @@ DECLARE
               -- DISTINCT ON (ea.id_endangered_animals) -- it also could be, distinct on rather than group by
               ea.id_endangered_animals "animalId",
               ea.name "animalName",
-              true as "is_active",
+              true as "isActive",
               (
                 SELECT JSON_AGG(c.*) "endangeredReasonsList"
                 FROM (
                   SELECT 
                     r.id_reasons "reasonId",
                     r.description "reason",
-                    true as "is_active"
+                    true as "isActive"
                   FROM temporal_schema.tbl_reasons r
                     INNER JOIN temporal_relation_endangered_reasons trer
                       ON r.id_reasons =  trer.id_reasons
