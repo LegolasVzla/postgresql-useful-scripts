@@ -2,7 +2,7 @@
 -- RELATED WITH SCHEMAS
 -----------------------------------------------
 
--- List schemas names
+-- To list schemas names
 SELECT 
   n.nspname 
 FROM 
@@ -14,7 +14,7 @@ ORDER BY
 -- RELATED WITH SEQUENCES
 -----------------------------------------------
 
--- List all sequences information
+-- To list all sequences information
 SELECT
   *
 FROM
@@ -28,7 +28,7 @@ SELECT
 FROM 
   your_schema_name.your_sequence_name;
 
--- List sequences comments
+-- To list sequences comments
 SELECT 
   c.relname AS "sequence_name", 
   CASE WHEN c.relkind = 'S' THEN 'sequence' END AS "type",
@@ -66,7 +66,7 @@ Note: depENDing of the value of "pg_class.relkind", you could query different ob
 -- RELATED WITH TABLES
 -----------------------------------------------
 
--- List all the tables names of an schema
+-- To list all the tables names of an schema
 SELECT 
   tablename 
 FROM 
@@ -74,7 +74,7 @@ FROM
 WHERE 
   schemaname = 'public';
 
--- List all the tables of your database with their primary keys
+-- To list all the tables of your database with their primary keys
 SELECT 
   tc.table_schema,
   tc.table_name,
@@ -89,7 +89,7 @@ WHERE
   AND kc.constraint_name = tc.constraint_name
 ORDER BY 1, 2;
 
--- List all the tables indexs 
+-- To list all the tables indexs 
 SELECT 
   * 
 FROM 
@@ -161,7 +161,7 @@ ORDER BY
 -- RELATED WITH TRIGGERS
 -----------------------------------------------
 
--- List all the triggers
+-- To list all the triggers
 SELECT
   ns.nspname||'.'||tbl.relname AS trigger_table,
   trg.tgname AS "trigger_name",
@@ -196,7 +196,7 @@ WHERE
   trg.tgname not LIKE 'RI_ConstraintTrigger%'
   AND trg.tgname not LIKE 'pg_sync_pg%';
 
--- List all the triggers of a schema
+-- To list all the triggers of a schema
 SELECT 
   event_object_table AS "trigger_table",
   trigger_name,
@@ -222,7 +222,7 @@ ORDER BY
 -- RELATED WITH FOREIGN AND PRIMARY KEYS
 -----------------------------------------------
 
--- List all the foreign keys
+-- To list all the foreign keys
 SELECT
     att2.attname AS "child_column",
     cl.relname AS "parent_table",
@@ -257,7 +257,7 @@ FROM
 -- RELATED WITH FUNCTIONS
 -----------------------------------------------
 
--- List all the functions including postgres
+-- To list all the functions including postgres
 SELECT
   proname AS "FUNCTION NAME",
   proargnames AS "PARAMETER NAMES",
@@ -267,7 +267,7 @@ FROM
   INNER JOIN 
     pg_catalog.pg_namespace n ON (f.pronamespace = n.oid);
 
--- List all the functions of a schema
+-- To list all the functions of a schema
 SELECT 
   proname AS "FUNCTION NAME",
   proargnames AS "PARAMETER NAMES",
@@ -302,7 +302,7 @@ ORDER BY
   Schema, 
   FUNCION;
 
--- List function comments of a schema
+-- To list function comments of a schema
 SELECT 
   p.proname AS funcname,
   d.description
@@ -316,4 +316,24 @@ WHERE
   n.nspname = 'your_schema_name'
 ORDER BY 
   n.nspname, p.proname ;
+
+
+-----------------------------------------------
+-- RELATED WITH CHANNELS
+-----------------------------------------------
+
+-- To list current channels listening
+SELECT
+    pid,
+    backend_start,
+    query channel,
+    query_start,
+    state_change
+FROM
+    pg_stat_activity
+WHERE
+    datname = 'your_database_name'
+    AND query
+    LIKE '%LISTEN%'
+ORDER BY backend_start;
 
