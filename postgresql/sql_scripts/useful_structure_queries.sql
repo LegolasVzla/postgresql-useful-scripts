@@ -104,6 +104,22 @@ ORDER BY
 -- RELATED WITH COLUMNS
 -----------------------------------------------
 
+-- List all columns for a specified table
+SELECT *
+FROM information_schema.columns
+WHERE table_schema = 'your_schema_name'
+  AND table_name   = 'your_table_name';
+
+-- List all columns for a specified table (another option)
+SELECT attrelid::regclass AS tbl
+     , attname            AS col
+     , atttypid::regtype  AS datatype
+FROM   pg_attribute
+WHERE  attrelid = 'your_schema_name.your_table_name'::regclass  -- table name, optionally schema-qualified
+AND    attnum > 0
+AND    NOT attisdropped
+ORDER  BY attnum;
+
 -- To search an specific column excluding postgres pg_catalogs
  WITH temp_table AS (
 
