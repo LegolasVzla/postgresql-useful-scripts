@@ -13,8 +13,8 @@ CREATE TABLE temporal_schema.tbl_categories (
     last_modified_date timestamp with time zone NOT NULL
 );
 
-DROP TABLE IF EXISTS temporal_schema.tb_log_categories;
-CREATE TABLE temporal_schema.tb_log_categories (
+DROP TABLE IF EXISTS temporal_schema.tbl_log_categories;
+CREATE TABLE temporal_schema.tbl_log_categories (
 	id_categories INTEGER,
 	name VARCHAR(255),
 	is_active BOOLEAN DEFAULT true,
@@ -37,8 +37,8 @@ CREATE TABLE temporal_schema.tbl_endangered_animals (
 	PRIMARY KEY (id_endangered_animals,id_categories)
 );
 
-DROP TABLE IF EXISTS temporal_schema.tb_log_endangered_animals;
-CREATE TABLE temporal_schema.tb_log_endangered_animals (
+DROP TABLE IF EXISTS temporal_schema.tbl_log_endangered_animals;
+CREATE TABLE temporal_schema.tbl_log_endangered_animals (
 	id_endangered_animals INTEGER,
 	name VARCHAR(255),
 	is_active BOOLEAN DEFAULT true,
@@ -62,8 +62,8 @@ CREATE TABLE temporal_schema.tbl_reasons (
     last_modified_date timestamp with time zone NOT NULL
 );
 
-DROP TABLE IF EXISTS temporal_schema.tb_log_reasons;
-CREATE TABLE temporal_schema.tb_log_reasons (
+DROP TABLE IF EXISTS temporal_schema.tbl_log_reasons;
+CREATE TABLE temporal_schema.tbl_log_reasons (
 	id_reasons INTEGER,
 	name VARCHAR(255),
 	is_active BOOLEAN DEFAULT true,
@@ -87,8 +87,8 @@ CREATE TABLE temporal_schema.tbl_relation_endangered_reasons (
 	PRIMARY KEY (id_endangered_reasons_relation,id_categories,id_endangered_animals,id_reasons)
 );
 
-DROP TABLE IF EXISTS temporal_schema.tb_log_relation_endangered_reasons;
-CREATE TABLE temporal_schema.tb_log_relation_endangered_reasons (
+DROP TABLE IF EXISTS temporal_schema.tbl_log_relation_endangered_reasons;
+CREATE TABLE temporal_schema.tbl_log_relation_endangered_reasons (
 	id_relation_endangered_reasons INTEGER,
 	name VARCHAR(255),
 	is_active BOOLEAN DEFAULT true,
