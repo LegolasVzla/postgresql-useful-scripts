@@ -16,6 +16,7 @@ ON UPDATE CASCADE;
 ALTER TABLE temporal_schema.tbl_relation_endangered_reasons ADD CONSTRAINT tbl_relation_endangered_reasons_tbl_endangered_animals
 	FOREIGN KEY (id_endangered_animals,id_categories) REFERENCES temporal_schema.tbl_endangered_animals (id_endangered_animals,id_categories)
 ON UPDATE CASCADE;
-CREATE TRIGGER trigger_relation_endangered_reasons_insert BEFORE UPDATE OR DELETE ON temporal_schema.tbl_relation_endangered_reasons
+/*CREATE TRIGGER trigger_relation_endangered_reasons_insert BEFORE UPDATE OR DELETE ON temporal_schema.tbl_relation_endangered_reasons
 	FOR EACH ROW 
 		EXECUTE PROCEDURE udt_general_tables_insert();
+*/

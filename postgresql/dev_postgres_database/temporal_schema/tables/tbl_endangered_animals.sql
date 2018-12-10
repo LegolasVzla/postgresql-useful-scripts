@@ -9,6 +9,7 @@ CREATE TABLE temporal_schema.tbl_endangered_animals (
     created_date timestamp with time zone DEFAULT NOW(),
 	PRIMARY KEY (id_endangered_animals,id_categories)
 );
-CREATE TRIGGER trigger_endangered_animals_insert BEFORE UPDATE OR DELETE ON temporal_schema.tbl_endangered_animals
+/*CREATE TRIGGER trigger_endangered_animals_insert BEFORE UPDATE OR DELETE ON temporal_schema.tbl_endangered_animals
 	FOR EACH ROW 
 		EXECUTE PROCEDURE udt_general_tables_insert();
+*/
