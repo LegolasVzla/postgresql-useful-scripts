@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS temporal_schema.tbl_log_categories;
+--DROP TABLE IF EXISTS temporal_schema.tbl_log_categories;
 CREATE TABLE temporal_schema.tbl_log_categories (
 	id_categories INTEGER,
 	name VARCHAR(255),

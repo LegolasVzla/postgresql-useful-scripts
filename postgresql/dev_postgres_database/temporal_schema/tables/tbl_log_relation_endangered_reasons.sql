@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS temporal_schema.tbl_log_relation_endangered_reasons;
+--DROP TABLE IF EXISTS temporal_schema.tbl_log_relation_endangered_reasons;
 CREATE TABLE temporal_schema.tbl_log_relation_endangered_reasons (
 	id_relation_endangered_reasons INTEGER,
 	name VARCHAR(255),

@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS temporal_schema.tbl_categories;
+--DROP TABLE IF EXISTS temporal_schema.tbl_categories;
 CREATE TABLE temporal_schema.tbl_categories (
 	id_categories SERIAL NOT NULL PRIMARY KEY,
 	name VARCHAR(255),

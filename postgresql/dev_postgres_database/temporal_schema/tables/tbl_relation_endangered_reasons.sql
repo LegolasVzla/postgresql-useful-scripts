@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS temporal_schema.tbl_relation_endangered_reasons;
+--DROP TABLE IF EXISTS temporal_schema.tbl_relation_endangered_reasons;
 CREATE TABLE temporal_schema.tbl_relation_endangered_reasons (
 	id_endangered_reasons_relation SERIAL,
 	id_endangered_animals INTEGER NOT NULL,

@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS temporal_schema.tbl_log_endangered_animals;
+--DROP TABLE IF EXISTS temporal_schema.tbl_log_endangered_animals;
 CREATE TABLE temporal_schema.tbl_log_endangered_animals (
 	id_endangered_animals INTEGER,
 	name VARCHAR(255),

@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS temporal_schema.tbl_reasons;
+--DROP TABLE IF EXISTS temporal_schema.tbl_reasons;
 CREATE TABLE temporal_schema.tbl_reasons (
 	id_reasons SERIAL NOT NULL PRIMARY KEY,
 	description VARCHAR(255),

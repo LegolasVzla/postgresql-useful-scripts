@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS temporal_schema.tbl_log_reasons;
+--DROP TABLE IF EXISTS temporal_schema.tbl_log_reasons;
 CREATE TABLE temporal_schema.tbl_log_reasons (
 	id_reasons INTEGER,
 	name VARCHAR(255),
