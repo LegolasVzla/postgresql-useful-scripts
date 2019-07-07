@@ -1,6 +1,3 @@
-# Execute from postgres user:
-# chmod +x execute_all.sh
-# sudo -i -u postgres
 psql -U postgres -a -f ./postgresql/main_database.sql
 psql -U postgres -d dev_postgres_database -a -c "CREATE SCHEMA temporal_schema;"
 #psql -U postgres -d dev_postgres_database -a -f ./postgresql/dev_postgres_database/temporal_schema/functions/udt_general_tables_insert.sql

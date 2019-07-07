@@ -3,7 +3,7 @@ CREATE OR REPLACE FUNCTION etl_migracion_general()
 $BODY$
  DECLARE
 
-	/* Migración de Datos usada para trasladar los datos del INAC (2017)
+	/* Migración de Datos usada para trasladar los datos de un proyecto del sector aeronáutico
 
 	Para probarlo: select etl_migracion_general()
 	

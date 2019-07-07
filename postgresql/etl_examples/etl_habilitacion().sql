@@ -5,7 +5,7 @@ $BODY$
 
 
 	/*
-	Resumen: destinado a migrar los datos de la bd de lotus a la bd de limed. 
+	Resumen: destinado a migrar los datos de la bd de origen a la nueva bd. 
 	Se encarga de extraer los datos de la tabla lotus_usr_exist_datos_exp_hab y los inserta en la tabla tbl_habilitacion
 	*/
 

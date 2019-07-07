@@ -5,7 +5,7 @@ $BODY$
 
 
 	/*
-	Resumen: destinado a migrar los datos de la bd de lotus a la bd de limed. 
+	Resumen: destinado a migrar los datos de la bd de origen a la nueva bd.
 	Se encarga de extraer los datos de la tabla lotus_usr_exist_descalif_med y los inserta en la tabla tbl_descalificacion_medica
 	ademas, actualiza el estatus_solicitante en la tabla tbl_documento asociados a todos los documentos correspondientes
 	al respectivo solicitante.
