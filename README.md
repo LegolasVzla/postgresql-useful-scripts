@@ -18,25 +18,41 @@ And execute the execute_all.sh file:
 
 ## Structure:
 
-* dev_postgres_database folder:
+Files are contained inside of the dev_postgres_database folder, with the follow structure: dev_postgres_database -> schema -> functions.
 
-Files are contained inside of the dev_postgres_database folder, with the below structure:
+1. dba_scripts.sql:
 
-a) schema -> useful_queries: 
+- Display actives connections
+- Display the activity of your database
+- Display connections by client_addr
+- Display usaged size on disk by database
+- Display usaged size of a specific table
+- Display usaged size of tables by schemas
 
-- dba_scripts.sql: some dba monitoring querys.
+2. udf_check_value.sql, udf_adjust_sequence.sql: scripts to adjust sequences.
 
-- useful_structure_queries.sql: several useful querys related with schemas, sequences, tables, columns, triggers, constraints, functions and pg_notify channels.
+3. udf_kill_connections_pg3.sql, udf_kill_connections_pg4.sql: scripts used to controll the excessive number of queries windows opened in pgadmin 3 and 4.
 
-b) schema -> functions: several PL/PL/PgSQL functions with useful code (e.g: generating queries with tree json format, killing connections in pgadmin and more).
+4. useful_structure_queries.sql: several useful querys related with schemas, sequences, tables, columns, triggers, constraints, functions and pg_notify channels.
 
-c) schema -> tables: examples tables to use in the plpgsql_scripts.
-
-d) schema -> data: mock data to use in the plpgsql_scripts.
-
-* etl_examples folder:
-
-Some etl examples developed in PL/PgSQL, with useful code (e.g cursors, data cleaning and more)
+- List schemas names
+- List all sequences information
+- Display all the information about an specific sequence
+- List sequences comments
+- List all the tables names of an schema
+- List all the tables of your database with their primary keys
+- List all the tables indexs 
+- List all columns for a specified table
+- List all columns for a specified table (another option)
+- Search an specific column excluding postgres pg_catalogs
+- List all the triggers
+- List all the triggers of a schema
+- List all the foreign keys
+- List all the functions including postgres
+- List all the functions of a schema
+- Search (functions, tables, colums...) in all the functions (Great function!)
+- List function comments of a schema
+- List current channels listening
 
 Contributions
 -----------------------
