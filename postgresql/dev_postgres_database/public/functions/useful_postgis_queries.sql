@@ -49,6 +49,7 @@ https://postgis.net/workshops/postgis-intro/knn.html
 -----------------------------------------------
 
 /*
+
 -- Official Documentation
 http://postgis.net/docs/
 
@@ -62,6 +63,14 @@ http://postgis.net/docs/reference.html
 https://postgis.net/docs/PostGIS_FAQ.html
 
 http://postgis.net/2013/08/30/tip_ST_Set_or_Transform/
+
+-- PostGIS official repository:
+https://trac.osgeo.org/postgis/
+
+https://github.com/postgis/postgis
+
+-- pgRouting official repository
+https://github.com/pgRouting/pgrouting
 
 */
 
@@ -86,7 +95,7 @@ SELECT ST_Distance(
   ST_GeometryFromText('POINT(2.5559 49.0083)', 4326)     -- Paris (CDG)
   );
 
--- Get X,Y coordinates from latitude and longitude
+-- Get X,Y coordinates from geometry point
 SELECT 
 	ST_X(<your_geometry_column>) latitude, 
 	ST_Y(<your_geometry_column>) longitude, 
@@ -112,7 +121,7 @@ FROM
 WHERE 
 	ST_intersects(ST_GeographyFromText('SRID=4326;POINT(' || <your_table>.<your_long_column> || ' ' || <your_table>.<your_lat_column> || ')'), <your_table>.<your_geometry_column>)
 
-# Find near by places within 5 km from a current position(longitude,latitude)
+-- Find near by places within 5 km from a current position(longitude,latitude)
 SELECT 
 	*
 FROM

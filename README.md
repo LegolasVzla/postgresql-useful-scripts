@@ -54,6 +54,14 @@ Files are contained inside of the dev_postgres_database folder, with the follow 
 - List function comments of a schema
 - List current channels listening
 
+5. useful_postgis_queries.sql: several useful querys related with geolocation using postgis extension.
+
+- Distance between 2 points (longitude latitude) based on WGS 84
+- Get X,Y coordinates from geometry point
+- Get geometry value from text (longitude latitude) 
+- Find intersection based on WGS 84
+- Find near by places within X km from a current position(longitude,latitude)
+
 Contributions
 -----------------------
 
