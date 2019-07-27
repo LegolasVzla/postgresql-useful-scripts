@@ -129,3 +129,10 @@ FROM
 WHERE
 	ST_DistanceSphere("<your_table>"."<your_geometry_position_column>", ST_GeomFromEWKB(ST_MakePoint(<your_long_column>,<your_lat_column>)::bytea)) <= 5000.0
 
+-- Get the first 5 nearest records disregard (<->) how far the are away from the current location (latitude and longitude as a parameters)
+SELECT 
+	* 
+FROM 
+	<your_table>
+ORDER BY 
+		<your_table>.<your_geometry_column> <-> ST_SetSRID(ST_MakePoint(param_lng,param_lat),4326) LIMIT 5;
