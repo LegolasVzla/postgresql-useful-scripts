@@ -136,3 +136,16 @@ FROM
 	<your_table>
 ORDER BY 
 		<your_table>.<your_geometry_column> <-> ST_SetSRID(ST_MakePoint(param_lng,param_lat),4326) LIMIT 5;
+
+
+-- Basic grid clustering with SnapToGrid
+SELECT
+    array_agg(id) AS ids,
+    COUNT( position ) AS count,
+    ST_AsText( ST_Centroid(ST_Collect( position )) ) AS center
+FROM 
+	<your_table>
+GROUP BY
+    ST_SnapToGrid( ST_SetSRID(position, 4326), 22.25, 11.125)
+ORDER BY
+    count DESC;
