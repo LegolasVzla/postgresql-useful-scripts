@@ -62,6 +62,8 @@ Files are contained inside of the dev_postgres_database folder, with the follow 
 - Find intersection based on WGS 84
 - Find near by places within X km from a current position(longitude,latitude)
 
+6. useful_fts_queries.sql: examples of how to do full text search with different case of searches, given stop words, upper or lower cases, accents, white spaces, multiple strings, incomplete strings or multiple incomplete strings. 
+
 Contributions
 -----------------------
 
