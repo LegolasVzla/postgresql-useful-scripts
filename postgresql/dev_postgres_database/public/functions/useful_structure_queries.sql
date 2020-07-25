@@ -353,3 +353,27 @@ WHERE
     LIKE '%LISTEN%'
 ORDER BY backend_start;
 
+-----------------------------------------------
+-- RELATED WITH DATA DICTIONARY
+-----------------------------------------------
+
+-- To list information for data dictionary
+SELECT
+    t1.TABLE_SCHEMA,
+    t1.TABLE_NAME,
+    t1.COLUMN_NAME,
+    t1.COLUMN_DEFAULT,
+    t1.IS_NULLABLE,
+    t1.DATA_TYPE,
+    COALESCE(t1.NUMERIC_PRECISION,
+    t1.CHARACTER_MAXIMUM_LENGTH) AS COLUMN_LENGHT,
+    PG_CATALOG.COL_DESCRIPTION(t2.OID,
+    t1.DTD_IDENTIFIER::int) AS COLUMN_DESCRIPTION,
+    t1.DOMAIN_NAME AS COLUMN_DOMAIN
+FROM 
+    INFORMATION_SCHEMA.COLUMNS t1
+    INNER JOIN PG_CLASS t2 ON (t2.RELNAME = t1.TABLE_NAME)
+WHERE 
+    t1.TABLE_SCHEMA = 'your_schema_name'
+ORDER BY
+    t1.TABLE_NAME;

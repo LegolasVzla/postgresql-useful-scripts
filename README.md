@@ -55,6 +55,7 @@ Files are contained inside of the dev_postgres_database folder, with the follow 
 - Search (functions, tables, colums...) in all the functions (Great function!)
 - List function comments of a schema
 - List current channels listening
+- List information for data dictionary
 
 5. useful_postgis_queries.sql: several useful querys related with geolocation using postgis extension.
 

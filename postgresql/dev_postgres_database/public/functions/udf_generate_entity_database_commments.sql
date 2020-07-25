@@ -36,7 +36,7 @@ DECLARE
       LOOP
 
         -- Generate table comment
-        RAISE NOTICE 'COMMENT ON TABLE %.% is ''<write_your_comment>''',param_schema_list[i],j.tablename;
+        RAISE NOTICE 'COMMENT ON TABLE %.% is ''<write_your_comment>'';',param_schema_list[i],j.tablename;
 
         -- Get all the columns name of the current table
         FOR k IN (
@@ -54,7 +54,7 @@ DECLARE
         LOOP
 
           -- Generate column comment
-          RAISE NOTICE 'COMMENT ON COLUMN %.%.% is ''<write_your_comment>''',param_schema_list[i],j.tablename,k.column_name;
+          RAISE NOTICE 'COMMENT ON COLUMN %.%.% is ''<write_your_comment>'';',param_schema_list[i],j.tablename,k.column_name;
 
         END LOOP;
 
@@ -74,7 +74,7 @@ DECLARE
       LOOP
 
         -- Generate function comment
-        RAISE NOTICE 'COMMENT ON FUNCTION %.% is ''<write_your_comment>''',param_schema_list[i],w.proname;
+        RAISE NOTICE 'COMMENT ON FUNCTION %.% is ''<write_your_comment>'';',param_schema_list[i],w.proname;
 
       END LOOP;
 
