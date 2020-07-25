@@ -1,4 +1,4 @@
--- To search incoming string in a column
+-- To search a string in a column
 SELECT
 	*
 FROM
@@ -21,7 +21,9 @@ CREATE EXTENSION unaccent;
 
 6. Match string with the column selected
 
-* Important Note: consider that the column should have some index (GIN, GiST or B-tree, see more information here: https://www.postgresql.org/docs/current/textsearch-indexes.html) to make improvements in fast searches
+* Important Note: consider that the column should have some index (GIN, GiST or B-tree, see more information here: 
+https://www.postgresql.org/docs/current/textsearch-indexes.html) 
+To make improvements in fast searches
 
 * To check efficient of this query, use: 
 EXPLAIN ANALYZE query
@@ -41,12 +43,11 @@ FROM
 WHERE
  (to_tsvector('spanish',UNACCENT(name)) @@ to_tsquery('spanish',UNACCENT(replace(trim('ÁNGEL') || ':*',' ','&'))))
 
-
 - First place: "El Salto Ángel"
 - Searches:
 ángel
 angel
-salto
+ÁNGEL
 El salto angel
 El Salto Ángel
 El Sal

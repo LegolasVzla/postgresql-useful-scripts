@@ -35,6 +35,8 @@ Files are contained inside of the dev_postgres_database folder, with the follow 
 
 4. useful_structure_queries.sql: several useful querys related with schemas, sequences, tables, columns, triggers, constraints, functions and pg_notify channels.
 
+5. udf_generate_entity_database_commments: is a simple script to generate the comment template for tables, columns and functions related with a schema list that you supply.
+
 - List schemas names
 - List all sequences information
 - Display all the information about an specific sequence
